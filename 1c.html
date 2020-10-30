@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Document</title>
+  <style>
+      .div {
+  height: 49vh;
+  margin: 4px;
+  border: 1px solid #f00;
+}
+
+canvas.tip {
+  position: absolute;
+  z-index: 99999;
+  border: 1px solid #f00;
+  box-shadow: 1px 1px 5px #000;
+  background-color: white;
+}
+      
+.container{
+	width:840px; 
+	height:140px;
+	display:flex;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+.D2{
+    background: rgb(0,255,119);
+    width:63px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.CHD0{
+    background: rgb(245, 224, 224);
+    width:402px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.D3{
+    background: rgb(0,255,119);
+    width:0px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.CHD1{
+    background: rgb(245, 224, 224);
+    width:133px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.D4{
+    background: rgb(0,255,119);
+    width:28px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.CHD2{
+    background: rgb(245, 224, 224);
+    width:171px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.D5{
+    background: rgb(0,255,119);
+    width:43px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.R1{
+    background: rgb(100,100,200);
+    width:480px; 
+    height:40px;
+    border: 1px solid black; 
+    box-sizing: border-box;   
+}
+.selected{
+	background: rgb(200,100,200);
+	border: 2px solid blue;
+}
+  </style>
+</head>
+<body>
+<div class="div" data-call="square"></div>
+<div class="div" data-call="circle"></div>
+<div class='container'>
+<div class='D2' data-call="D2" data-title='D2' id='D2'></div>
+<div class='CHD0' data-title='CHD0'></div>
+<div class='D3' data-title='D3' id='D3'></div>
+<div class='CHD1' data-title='CHD1'></div>
+<div class='D4' data-title='D4' id='D4'></div>
+<div class='CHD2' data-title='CHD2'></div>
+<div class='D5' data-title='D5' id='D5'></div>
+<div class='R1' data-title='R1'></div>
+  
+</div>
+ <div  style='display: flex'>
+     <table>
+   <tr>
+    <th>Номер</th>
+    <th>Цвет</th>
+    <th>Дефект</th>
+    <th>Значение</th>
+    <th>Длина начало</th>
+    <th>Длина конец</th>
+    <th>Ширина начало</th>
+    <th>Ширина конец</th>
+    <th>Комментарий</th>
+    
+   </tr><tr id='rowD2'>
+	<td>Номер</td>
+	<td>Цвет</td>
+	<td>условный вырез</td>
+	<td>0</td>
+	<td>1</td>
+	<td>1 580</td>
+	<td>0</td>
+	<td>1 440</td>
+	<td>заломы. крап.</td>
+ </tr><tr id='rowD3'>
+	<td>Номер</td>
+	<td>Цвет</td>
+	<td>крап</td>
+	<td>0</td>
+	<td>11 640</td>
+	<td>11 641</td>
+	<td>890</td>
+	<td>891</td>
+	<td></td>
+ </tr><tr id='rowD4'>
+	<td>Номер</td>
+	<td>Цвет</td>
+	<td>условный вырез</td>
+	<td>0</td>
+	<td>14 960</td>
+	<td>15 650</td>
+	<td>0</td>
+	<td>1 450</td>
+	<td>крап. пятно.</td>
+ </tr><tr id='rowD5'>
+	<td>Номер</td>
+	<td>Цвет</td>
+	<td>условный вырез</td>
+	<td>0</td>
+	<td>19 930</td>
+	<td>21 000</td>
+	<td>0</td>
+	<td>1 450</td>
+	<td>залом.</td>
+ </tr>		|</table>
+<table>
+   <tr>
+    <th>Документ</th>
+    <th>Контрагент</th>
+    <th>Длина</th>
+    
+   </tr>
+   <tr>
+    <td>Документ</td>
+    <td>Контрагент</td>
+    <td>Длина</td>
+    
+  </tr>
+</table>
+ </div>
+ 
+<script>
+    
+let rowD2 = document.getElementById('rowD2');
+rowD2.onmouseover = function(){
+    let el = document.getElementById('D2'); 
+     el.classList.add('selected');
+}
+rowD2.onmouseout = function(){
+    let el = document.getElementById('D2'); 
+    el.classList.remove('selected');
+}
+let rowD3 = document.getElementById('rowD3');
+rowD3.onmouseover = function(){
+    let el = document.getElementById('D3'); 
+     el.classList.add('selected');
+}
+rowD3.onmouseout = function(){
+    let el = document.getElementById('D3'); 
+    el.classList.remove('selected');
+}
+let rowD4 = document.getElementById('rowD4');
+rowD4.onmouseover = function(){
+    let el = document.getElementById('D4'); 
+     el.classList.add('selected');
+}
+rowD4.onmouseout = function(){
+    let el = document.getElementById('D4'); 
+    el.classList.remove('selected');
+}
+let rowD5 = document.getElementById('rowD5');
+rowD5.onmouseover = function(){
+    let el = document.getElementById('D5'); 
+     el.classList.add('selected');
+}
+rowD5.onmouseout = function(){
+    let el = document.getElementById('D5'); 
+    el.classList.remove('selected');
+}
+let D5 = document.getElementById('D5');
+D5.onmouseover = function(){
+    let el = document.getElementById('rowD5'); 
+     el.classList.add('selected');
+}
+D5.onmouseout = function(){
+    let el = document.getElementById('rowD5'); 
+    el.classList.remove('selected');
+}        
+
+let canvas = new Tip_canvas();
+let ctx = canvas.getContext("2d");
+
+let tip_storage = new Tip_drawers(canvas);
+// Набор функций-рисовашек, которые будут вызываться при наведении на блоки.
+
+//let div = document.querySelectorAll("div.container > div");
+//for (let i = 0; i < div.length; i++) {
+//  div[i].addEventListener("mouseenter", show_tip);
+//  div[i].addEventListener("mouseleave", hide_tip);
+//  div[i].addEventListener("mousemove",  move_tip);
+//}
+    
+let div = document.querySelectorAll(".div");
+for (let i = 0; i < div.length; i++) {
+  div[i].addEventListener("mouseenter", show_tip);
+  div[i].addEventListener("mouseleave", hide_tip);
+  div[i].addEventListener("mousemove",  move_tip);
+}    
+
+function show_tip() {
+  tip_storage[this.dataset.call](ctx);
+  // this.dataset.call - строка, по совместительству - название функции.
+
+  canvas.style.display = "block";
+}
+
+function hide_tip() {  
+  canvas.style.display = "none";
+}
+
+function move_tip(e) {
+  let WID = document.documentElement.clientWidth;
+  let HEI = document.documentElement.clientHeight;
+  
+  let x = e.pageX + 10 - (canvas.width + 20) * (WID < e.pageX + canvas.width + 20);
+  let y = e.pageY + 10 - (canvas.width + 20) * (HEI < e.pageY + canvas.height + 20);
+  // (!)
+  
+  canvas.style.left = x + "px";
+  canvas.style.top = y + "px";
+}
+
+
+/***/
+function Tip_drawers() {
+  this.square = function(ctx) {
+    this.clear(ctx);
+    ctx.fillStyle = "#045acf";
+    
+    ctx.beginPath();
+      ctx.fillRect(10, 10, 80, 80);
+      ctx.fill();    
+  };
+  
+  this.circle = function(ctx) {
+    this.clear(ctx);
+    ctx.fillStyle = "#922";
+    
+    ctx.beginPath();
+      ctx.arc(50, 50, 40, 0, 2 * Math.PI);
+      ctx.fill();    
+  };
+  
+  this.clear = function(ctx) {    
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  };
+}
+
+function Tip_canvas() {
+  let canvas = document.createElement("canvas");
+  canvas.width = canvas.height = "100";
+  canvas.className = "tip";
+  
+  canvas.style.display = "none";
+  
+  document.body.appendChild(canvas);
+  
+  return canvas;
+}
+</script>  
+</body>
+</html>
